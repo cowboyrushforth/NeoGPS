@@ -188,6 +188,16 @@ public:
     float alt_err() const { return alt_err_cm / 100.0; }
   #endif
 
+  #ifdef GPS_FIX_HORZ_ACCURACY
+    uint16_t horz_accuracy_cm;
+    float horz_accuracy() const { return horz_accuracy_cm / 10.0; }
+  #endif
+  
+  #ifdef GPS_FIX_VERT_ACCURACY
+    uint16_t vert_accuracy_cm;
+    float vert_accuracy() const { return vert_accuracy_cm / 10.0; }
+  #endif
+
   //--------------------------------------------------------
   // Height of the geoid above the WGS84 ellipsoid
   #ifdef GPS_FIX_GEOID_HEIGHT
@@ -298,6 +308,14 @@ public:
       bool alt_err NEOGPS_BF(1);
     #endif
 
+    #ifdef GPS_FIX_HORZ_ACCURACY
+      bool horz_accuracy NEOGPS_BF(1);
+    #endif
+
+    #ifdef GPS_FIX_VERT_ACCURACY
+      bool vert_accuracy NEOGPS_BF(1);
+    #endif
+
     #ifdef GPS_FIX_GEOID_HEIGHT
       bool geoidHeight NEOGPS_BF(1);
     #endif
@@ -365,6 +383,13 @@ public:
     #endif
     #ifdef GPS_FIX_ALT_ERR
       alt_err_cm = 0;
+    #endif
+
+    #ifdef GPS_FIX_HORZ_ACCURACY
+      horz_accuracy_cm = 0;
+    #endif
+    #ifdef GPS_FIX_VERT_ACCURACY
+      vert_accuracy_cm = 0;
     #endif
 
     #ifdef GPS_FIX_GEOID_HEIGHT
@@ -479,6 +504,16 @@ public:
     #ifdef GPS_FIX_ALT_ERR
       if (r.valid.alt_err)
         alt_err_cm = r.alt_err_cm;
+    #endif
+
+    #ifdef GPS_FIX_HORZ_ACCURACY
+      if (r.valid.horz_accuracy)
+        horz_accuracy_cm = r.horz_accuracy_cm;
+    #endif
+
+    #ifdef GPS_FIX_VERT_ACCURACY
+      if (r.valid.vert_accuracy)
+        vert_accuracy_cm = r.vert_accuracy_cm;
     #endif
 
     #ifdef GPS_FIX_GEOID_HEIGHT

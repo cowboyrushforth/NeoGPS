@@ -247,6 +247,8 @@
     bool parse_lat_err   ( char chr );
     bool parse_lon_err   ( char chr );
     bool parse_alt_err   ( char chr );
+    bool parseHAcc       ( char chr );
+    bool parseVAcc       ( char chr );
     bool parseSatellites ( char chr );
 
     // Helper macro for parsing the 4 consecutive fields of a location

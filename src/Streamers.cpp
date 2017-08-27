@@ -105,6 +105,14 @@ const char gps_fix_header[] __PROGMEM =
     "Alt err,"
   #endif
 
+  #if defined(GPS_FIX_HORZ_ACCURACY)
+    "Horz Accuracy,"
+  #endif
+
+  #if defined(GPS_FIX_VERT_ACCURACY)
+    "Vert Accuracy,"
+  #endif
+
   #if defined(GPS_FIX_GEOID_HEIGHT)
     "Geoid Ht,"
   #endif
@@ -253,6 +261,16 @@ Print & operator <<( Print &outs, const gps_fix &fix )
         outs.print( fix.alt_err(), 2 );
       outs << ',';
     #endif
+    #ifdef GPS_FIX_HORZ_ACCURACY
+      if (fix.valid.horz_accuracy)
+        outs.print( fix.horz_accuracy(), 1 );
+      outs << ',';
+    #endif
+    #ifdef GPS_FIX_VERT_ACCURACY
+      if (fix.valid.vert_accuracy)
+        outs.print( fix.vert_accuracy(), 1 );
+      outs << ',';
+    #endif
 
     #ifdef GPS_FIX_GEOID_HEIGHT
       if (fix.valid.geoidHeight)
@@ -328,6 +346,16 @@ Print & operator <<( Print &outs, const gps_fix &fix )
     #ifdef GPS_FIX_ALT_ERR
       if (fix.valid.alt_err)
         outs << fix.alt_err_cm;
+      outs << ',';
+    #endif
+    #ifdef GPS_FIX_HORZ_ACCURACY
+      if (fix.valid.horz_accuracy)
+        outs << fix.horz_accuracy_cm;
+      outs << ',';
+    #endif
+    #ifdef GPS_FIX_VERT_ACCURACY
+      if (fix.valid.vert_accuracy)
+        outs << fix.vert_accuracy_cm;
       outs << ',';
     #endif
 

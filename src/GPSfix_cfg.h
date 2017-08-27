@@ -48,5 +48,7 @@
 //#define GPS_FIX_LON_ERR
 //#define GPS_FIX_ALT_ERR
 //#define GPS_FIX_GEOID_HEIGHT
+#define GPS_FIX_HORZ_ACCURACY 1
+#define GPS_FIX_VERT_ACCURACY 1
 
 #endif

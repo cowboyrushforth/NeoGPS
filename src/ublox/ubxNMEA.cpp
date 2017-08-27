@@ -80,6 +80,8 @@ bool ubloxNMEA::parsePUBX_00( char chr )
       PARSE_LOC(3);
       case  7: return parseAlt( chr );
       case  8: return parseFix( chr );
+      case  9: return parseHAcc( chr ); 
+      case 10: return parseVAcc( chr );
       case 11: return parseSpeed( chr ); // kph!
       case 12: return parseHeading( chr );
       case 15: return parseHDOP( chr );

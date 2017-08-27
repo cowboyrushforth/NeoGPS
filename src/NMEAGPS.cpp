@@ -1639,6 +1639,36 @@ bool NMEAGPS::parse_alt_err( char chr )
 
 //----------------------------------------------------------------
 
+bool NMEAGPS::parseHAcc( char chr )
+{
+  #ifdef GPS_FIX_HORZ_ACCURACY
+    if (chrCount == 0)
+      NMEAGPS_INVALIDATE( horz_accuracy );
+    if (parseFloat( m_fix.horz_accuracy_cm, chr, 1 ))
+      m_fix.valid.horz_accuracy = (chrCount != 0);
+  #endif
+
+  return true;
+
+} // parseHAcc
+
+//----------------------------------------------------------------
+
+bool NMEAGPS::parseVAcc( char chr )
+{
+  #ifdef GPS_FIX_VERT_ACCURACY
+    if (chrCount == 0)
+      NMEAGPS_INVALIDATE( vert_accuracy );
+    if (parseFloat( m_fix.vert_accuracy_cm, chr, 1 ))
+      m_fix.valid.vert_accuracy = (chrCount != 0);
+  #endif
+
+  return true;
+
+} // parseVAcc
+
+//----------------------------------------------------------------
+
 const gps_fix NMEAGPS::read()
 {
   gps_fix fix;
