@@ -41,7 +41,7 @@ class ubloxGPS : public ubloxNMEA
 public:
 
     // Constructor needs to know the device to handle the UBX binary protocol
-    ubloxGPS( Stream *device )
+    ubloxGPS( HardwareSerial *device )
       :
         storage( (ublox::msg_t *) NULL ),
         reply( (ublox::msg_t *) NULL ),
@@ -155,7 +155,7 @@ public:
     //................................................................
     //  Return the Stream that was passed into the constructor.
 
-    Stream *Device() const { return (Stream *)m_device; };
+    HardwareSerial *Device() const { return (HardwareSerial *)m_device; };
 
 protected:
 
@@ -283,7 +283,7 @@ private:
     static const uint8_t SYNC_1 = 0xB5;
     static const uint8_t SYNC_2 = 0x62;
 
-    Stream *m_device;
+    HardwareSerial *m_device;
 
     bool parseNavStatus ( uint8_t chr );
     bool parseNavDOP    ( uint8_t chr );

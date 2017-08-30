@@ -1,23 +1,6 @@
 #ifndef NMEAGPS_CFG_H
 #define NMEAGPS_CFG_H
 
-//  Copyright (C) 2014-2017, SlashDevin
-//
-//  This file is part of NeoGPS
-//
-//  NeoGPS is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  NeoGPS is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with NeoGPS.  If not, see <http://www.gnu.org/licenses/>.
-
 #include "GPSfix_cfg.h"
 
 //------------------------------------------------------
@@ -30,11 +13,15 @@
 // sentences contain time information.  Both date and time are 
 // required if you will be doing time_t-to-clock_t operations.
 
+#define NMEAGPS_PARSE_PUBX_00
+#define NMEAGPS_PARSE_PUBX_04
+#define NMEAGPS_DERIVED_TYPES
+#define NMEAGPS_PARSE_PROPRIETARY
 #define NMEAGPS_PARSE_GGA
-//#define NMEAGPS_PARSE_GLL
-//#define NMEAGPS_PARSE_GSA
-//#define NMEAGPS_PARSE_GSV
-//#define NMEAGPS_PARSE_GST
+#define NMEAGPS_PARSE_GLL
+#define NMEAGPS_PARSE_GSA
+#define NMEAGPS_PARSE_GSV
+#define NMEAGPS_PARSE_GST
 #define NMEAGPS_PARSE_RMC
 //#define NMEAGPS_PARSE_VTG
 //#define NMEAGPS_PARSE_ZDA
@@ -45,7 +32,7 @@
 // to determine when the GPS quiet time begins, and thus
 // when you can perform "some" time-consuming operations.
 
-#define LAST_SENTENCE_IN_INTERVAL NMEAGPS::NMEA_RMC
+#define LAST_SENTENCE_IN_INTERVAL NMEAGPS::NMEA_VTG
 
 // NOTE: For PUBX-only configs, use
 //          (NMEAGPS::nmea_msg_t)(NMEAGPS::NMEA_LAST_MSG+1)
@@ -195,7 +182,7 @@
 //#define NMEAGPS_SAVE_TALKER_ID
 //#define NMEAGPS_PARSE_TALKER_ID
 
-//#define NMEAGPS_PARSE_PROPRIETARY
+#define NMEAGPS_PARSE_PROPRIETARY
 #ifdef NMEAGPS_PARSE_PROPRIETARY
   //#define NMEAGPS_SAVE_MFR_ID
   #define NMEAGPS_PARSE_MFR_ID
@@ -235,7 +222,7 @@
 // If not defined, virtuals are not used, with a slight size (2 bytes) and 
 // execution time savings.
 
-//#define NMEAGPS_DERIVED_TYPES
+#define NMEAGPS_DERIVED_TYPES
 
 #ifdef NMEAGPS_DERIVED_TYPES
   #define NMEAGPS_VIRTUAL virtual
@@ -297,7 +284,7 @@
 // Sometimes, a little extra space is needed to parse an intermediate form.
 // This config items enables extra space.
 
-//#define NMEAGPS_PARSING_SCRATCHPAD
+#define NMEAGPS_PARSING_SCRATCHPAD
 
 //------------------------------------------------------
 // If you need to know the exact UTC time at *any* time,

@@ -1,23 +1,6 @@
 #ifndef GPS_FIX_CFG
 #define GPS_FIX_CFG
 
-//  Copyright (C) 2014-2017, SlashDevin
-//
-//  This file is part of NeoGPS
-//
-//  NeoGPS is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU General Public License as published by
-//  the Free Software Foundation, either version 3 of the License, or
-//  (at your option) any later version.
-//
-//  NeoGPS is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU General Public License for more details.
-//
-//  You should have received a copy of the GNU General Public License
-//  along with NeoGPS.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Enable/disable the storage for the members of a fix.
  *
@@ -41,14 +24,15 @@
 #define GPS_FIX_SPEED
 #define GPS_FIX_HEADING
 #define GPS_FIX_SATELLITES
-//#define GPS_FIX_HDOP
-//#define GPS_FIX_VDOP
-//#define GPS_FIX_PDOP
-//#define GPS_FIX_LAT_ERR
-//#define GPS_FIX_LON_ERR
-//#define GPS_FIX_ALT_ERR
+#define GPS_FIX_HDOP
+#define GPS_FIX_VDOP
+#define GPS_FIX_PDOP
+#define GPS_FIX_LAT_ERR
+#define GPS_FIX_LON_ERR
+#define GPS_FIX_ALT_ERR
 //#define GPS_FIX_GEOID_HEIGHT
-#define GPS_FIX_HORZ_ACCURACY 1
-#define GPS_FIX_VERT_ACCURACY 1
+#define GPS_FIX_HORZ_ACCURACY
+#define GPS_FIX_VERT_ACCURACY
+
 
 #endif
