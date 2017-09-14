@@ -14,17 +14,17 @@
 // required if you will be doing time_t-to-clock_t operations.
 
 #define NMEAGPS_PARSE_PUBX_00
-#define NMEAGPS_PARSE_PUBX_04
+//#define NMEAGPS_PARSE_PUBX_04
 #define NMEAGPS_DERIVED_TYPES
 #define NMEAGPS_PARSE_PROPRIETARY
-#define NMEAGPS_PARSE_GGA
-#define NMEAGPS_PARSE_GLL
-#define NMEAGPS_PARSE_GSA
-#define NMEAGPS_PARSE_GSV
-#define NMEAGPS_PARSE_GST
-#define NMEAGPS_PARSE_RMC
+//#define NMEAGPS_PARSE_GGA
+//#define NMEAGPS_PARSE_GLL
+//#define NMEAGPS_PARSE_GSA
+//#define NMEAGPS_PARSE_GSV
+//#define NMEAGPS_PARSE_GST
+//#define NMEAGPS_PARSE_RMC
 //#define NMEAGPS_PARSE_VTG
-//#define NMEAGPS_PARSE_ZDA
+#define NMEAGPS_PARSE_ZDA
 
 //------------------------------------------------------
 // Select which sentence is sent *last* by your GPS device
@@ -32,7 +32,8 @@
 // to determine when the GPS quiet time begins, and thus
 // when you can perform "some" time-consuming operations.
 
-#define LAST_SENTENCE_IN_INTERVAL NMEAGPS::NMEA_VTG
+//#define LAST_SENTENCE_IN_INTERVAL NMEAGPS::NMEA_VTG
+#define LAST_SENTENCE_IN_INTERVAL (NMEAGPS::nmea_msg_t)(NMEAGPS::NMEA_LAST_MSG+1)
 
 // NOTE: For PUBX-only configs, use
 //          (NMEAGPS::nmea_msg_t)(NMEAGPS::NMEA_LAST_MSG+1)
@@ -278,7 +279,7 @@
 //  message is not enabled by a NMEAGPS_PARSE_xxx define above.
 //  No valid flags will be true for those sentences.
 
-#define NMEAGPS_RECOGNIZE_ALL
+//#define NMEAGPS_RECOGNIZE_ALL
 
 //------------------------------------------------------
 // Sometimes, a little extra space is needed to parse an intermediate form.
